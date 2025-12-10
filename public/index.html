@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Progress Shooter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+
+    <div id="ui-panel">
+      <h2>Progress Shooter</h2>
+      <p>Age: 14 Day 49</p>
+      <p>Balance: 3s 80c</p>
+      <p>Net/day: +8c</p>
+      <p>Happiness: 1.0</p>
+
+      <div class="tabs">
+        <button onclick="showTab('jobs')">Jobs</button>
+        <button onclick="showTab('skills')">Skills</button>
+      </div>
+
+      <div id="jobs-tab" class="tab-content">
+        <h3>Common Work</h3>
+        <p>Beggar Lv. 4 | 8c/day</p>
+        <p>XP Left: 172</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
