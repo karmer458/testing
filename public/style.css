@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: monospace;
+}
+#game-container {
+  display: flex;
+}
+#game-canvas {
+  background: #222;
+}
+#ui-panel {
+  width: 300px;
+  padding: 10px;
+  background: #333;
+}
+.tabs button {
+  margin-right: 5px;
+}
+.tab-content {
+  margin-top: 10px;
+}
