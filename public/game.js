@@ -29,10 +29,7 @@ function setName() {
   const name = document.getElementById('player-name').value.trim();
   if (name) {
     socket.emit('setName', name);
-    alert("Name set to: " + name);
-  } else {
-    alert("Please enter a name first!");
-  }
+  } 
 }
 
 // -------------------- Party --------------------
