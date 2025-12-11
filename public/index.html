@@ -1,31 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Progress Shooter</title>
+  <title>about:blank</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="game-canvas" width="800" height="600"></canvas>
+  <div id="main-menu">
+    <h1 id="game-title">shoot.dev</h1>
 
-    <div id="ui-panel">
-      <h2>Progress Shooter</h2>
-      <p>Age: 14 Day 49</p>
-      <p>Balance: 3s 80c</p>
-      <p>Net/day: +8c</p>
-      <p>Happiness: 1.0</p>
-
-      <div class="tabs">
-        <button onclick="showTab('jobs')">Jobs</button>
-        <button onclick="showTab('skills')">Skills</button>
-      </div>
-
-      <div id="jobs-tab" class="tab-content">
-        <h3>Common Work</h3>
-        <p>Beggar Lv. 4 | 8c/day</p>
-        <p>XP Left: 172</p>
-      </div>
+    <div id="menu-buttons">
+      <button onclick="goToQueue()">Play</button>
+      <button onclick="goToParty()">Party</button>
+      <button onclick="goToBot()">Bot</button>
     </div>
+
+    <div id="name-section">
+      <input type="text" id="player-name" placeholder="Enter your name">
+      <button onclick="setName()">Set Name</button>
+    </div>
+
+    <div id="settings-icon" onclick="openSettings()">⚙️</div>
+  </div>
+
+  <!-- Queue Screen -->
+  <div id="queue-screen" class="screen hidden">
+    <h2>Queueing...</h2>
+    <p>Waiting for another player to join...</p>
+    <button onclick="backToMenu()">Back</button>
+  </div>
+
+  <!-- Party Screen -->
+  <div id="party-screen" class="screen hidden">
+    <h2>Party Mode</h2>
+    <p>Invite a friend with a code or join their lobby.</p>
+
+    <div id="invite-section">
+      <button onclick="generateInviteCode()">Generate Invite Code</button>
+      <p id="invite-code-display"></p>
+    </div>
+
+    <div id="join-section">
+      <input type="text" id="join-code" placeholder="Enter code to join">
+      <button onclick="joinWithCode()">Join</button>
+    </div>
+
+    <div id="party-lobby" class="hidden">
+      <h3>Party Lobby</h3>
+      <ul id="party-players"></ul>
+      <button id="start-match-btn" onclick="startMatch()" class="hidden">Start Match</button>
+    </div>
+
+    <button onclick="backToMenu()">Back</button>
+  </div>
+
+  <!-- Battlefield Screen -->
+  <div id="battlefield-screen" class="screen hidden">
+    <h2>field.dev</h2>
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+    <button onclick="backToMenu()">Exit</button>
+  </div>
+
+  <!-- Bot Screen -->
+  <div id="bot-screen" class="screen hidden">
+    <h2>Bot Match</h2>
+    <p>Game against AI bot will start here.</p>
+    <button onclick="backToMenu()">Back</button>
+  </div>
+
+  <!-- Settings Screen -->
+  <div id="settings-screen" class="screen hidden">
+    <h2>Settings</h2>
+    <p>Adjust your preferences here.</p>
+    <button onclick="backToMenu()">Back</button>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
