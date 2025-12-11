@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
     if (!me || me.dead) return;
 
     const weapons = {
-      1: { cooldown: 1000, size: 20, speed: 40, damage: 75 }, // Sniper
+      1: { cooldown: 1000, size: 15, speed: 40, damage: 75 }, // Sniper
       2: { cooldown: 150, size: 5, speed: 12, damage: 20 },    // AR/SMG
       3: { cooldown: 500, size: 40, speed: 0, damage: 100 }    // Knife
     };
@@ -171,7 +171,7 @@ setInterval(() => {
       // knife circle disappears after one tick
       b.ttl--;
       if (b.ttl <= 0) {
-        bullets.splice(i,1);
+        bullets.splice(i,5);
       }
       return;
     }
